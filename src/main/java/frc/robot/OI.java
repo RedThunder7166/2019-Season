@@ -8,11 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-// import edu.wpi.first.wpilibj.Compressor;
-// import edu.wpi.first.wpilibj.Solenoid;
-import frc.robot.commands.*;
+import frc.robot.commands.Pneumatics.PneumaticsArmOpen;
+import frc.robot.commands.Pneumatics.PneumaticsHatchOpen;
 
 
 
@@ -55,8 +54,8 @@ public class OI {
     protected GenericHID joystick;
     protected GenericHID opjoystick;
 
-    protected JoystickButton extendButton;
-    // protected JoystickButton retractButton;
+    protected JoystickButton IntakeButton;
+    protected JoystickButton HatchButton;
 
     //hello
 
@@ -64,8 +63,8 @@ public class OI {
      * Default Constructor
      */
     public OI(){
-        joystick = new Joystick(RobotMap.DRIVE_STICK_PORT);
-        opjoystick = new Joystick(RobotMap.OP_STICK_PORT);
+        joystick = new XboxController(RobotMap.DRIVE_STICK_PORT);
+        opjoystick = new XboxController(RobotMap.OP_STICK_PORT);
     }
 
     /**
@@ -75,13 +74,15 @@ public class OI {
 
         System.out.println("Made it this far");
         PneumaticsArmOpen pneumaticsArmOpen = new PneumaticsArmOpen();
+        PneumaticsHatchOpen pneumaticsHatchOpen = new PneumaticsHatchOpen();
 
 
-        // Change to OPJOYSTICK or you will fucking die!!!!!!! <<<<<<<<<< READ THIS CHRIS OR IT BREAK IN MATCH
-        extendButton = new JoystickButton(joystick, 1);
 
+        IntakeButton = new JoystickButton(opjoystick, 2);
+        HatchButton = new JoystickButton(opjoystick, 1);
 
-        extendButton.toggleWhenActive(pneumaticsArmOpen);
+        IntakeButton.toggleWhenActive(pneumaticsArmOpen);
+        HatchButton.whileHeld(pneumaticsHatchOpen);
 
     }
 
