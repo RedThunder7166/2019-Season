@@ -9,7 +9,7 @@ public class SubsystemMaster{
     // Our reference to the tank drive subsystem
      TankDriveSubsystem tankDriveSubsystem;
      PneumaticsSubsystem pneumaticsSubsystem;
-    //  IntakeSubsystem intakeSubsystem;
+     IntakeSubsystem intakeSubsystem;
 
     /**
      * Default Constructor
@@ -18,7 +18,7 @@ public class SubsystemMaster{
     public SubsystemMaster(){
         tankDriveSubsystem = new TankDriveSubsystem();
         pneumaticsSubsystem = new PneumaticsSubsystem();
-        // intakeSubsystem = new IntakeSubsystem();
+        intakeSubsystem = new IntakeSubsystem();
     }
 
     /**
@@ -33,7 +33,7 @@ public class SubsystemMaster{
         return pneumaticsSubsystem;
     }
 
-    // public IntakeSubsystem getIntakeSubsystem(){
-    //     return intakeSubsystem;
-    // }
+    public IntakeSubsystem getIntakeSubsystem(){
+        return intakeSubsystem;
+    }
 }

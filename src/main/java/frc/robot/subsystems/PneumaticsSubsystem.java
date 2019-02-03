@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 // import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import frc.robot.commands.PneumaticsArmDoNothing;
+import frc.robot.commands.Pneumatics.*;
 
 
 
@@ -31,6 +31,8 @@ public class PneumaticsSubsystem extends Subsystem{
   Compressor compressor;
   Solenoid Sol1 = new Solenoid(0,0);
   Solenoid Sol2 = new Solenoid(0,1);
+  Solenoid Sol3 = new Solenoid(0,2);
+  Solenoid Sol4 = new Solenoid(0,3);
 
 
   public void initDefaultCommand(){
@@ -38,7 +40,23 @@ public class PneumaticsSubsystem extends Subsystem{
       setDefaultCommand(new PneumaticsArmDoNothing());
     }
 
-  public void Extended(){
+  public void HatchExtended(){
+
+    Sol3.set(false);
+    Sol4.set(true);
+    System.out.println("Sub to PewDiePie");
+  }
+
+
+
+  public void HatchDoNothing(){
+
+    Sol3.set(true);
+    Sol4.set(false);
+
+  }
+
+  public void ArmExtended(){
 
     Sol1.set(false);
     Sol2.set(true);
@@ -47,7 +65,7 @@ public class PneumaticsSubsystem extends Subsystem{
 
 
 
-  public void DoNothing(){
+  public void ArmDoNothing(){
 
     Sol1.set(true);
     Sol2.set(false);
