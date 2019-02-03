@@ -12,14 +12,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+// import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.SubsystemMaster;
 import frc.robot.Robot;
-// import frc.robot.commands.Auto1;
-// import frc.robot.commands.Auto2;
-// import frc.robot.commands.Auto3;
-// import frc.robot.commands.AutoLine;
+
 
 
 /**
@@ -39,8 +36,8 @@ public class Robot extends TimedRobot {
 
 
   //private Command m_autonomousCommand;
-  private SendableChooser<Command> autoChooser = new SendableChooser<>();
-  Command Auto1;
+  // private SendableChooser<Command> autoChooser = new SendableChooser<>();
+  // Command Auto1;
   // Command Auto2;
   // Command Auto3;
   // Command AutoLine;
@@ -57,8 +54,8 @@ private Command autonomousCommand;
     // autoChooser.addObject("Left", new Auto1());
     // autoChooser.addObject("Middle", new Auto2());
     // autoChooser.addObject("Right", new Auto3());
-    SmartDashboard.putData("Auto mode", autoChooser);
-    SmartDashboard.putString("DB/String 6", "My 21 Char TestString");
+    // SmartDashboard.putData("Auto mode", autoChooser);
+    // SmartDashboard.putString("DB/String 6", "My 21 Char TestString");
     
 
   }
@@ -108,7 +105,7 @@ private Command autonomousCommand;
     
     // autonomousCommand = autoChooser.getSelected();
 
-    Auto1 = autoChooser.getSelected();
+    // Auto1 = autoChooser.getSelected();
 
     // if (autonomousCommand != null) {
     //   autonomousCommand.start();
