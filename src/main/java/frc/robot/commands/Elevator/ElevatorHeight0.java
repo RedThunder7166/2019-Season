@@ -9,8 +9,8 @@ package frc.robot.commands.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ElevatorBottom extends Command {
-  public ElevatorBottom() {
+public class ElevatorHeight0 extends Command {
+  public ElevatorHeight0() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
