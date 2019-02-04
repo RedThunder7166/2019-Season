@@ -1,3 +1,4 @@
+
 package frc.robot.subsystems;
 
 /**
@@ -10,6 +11,7 @@ public class SubsystemMaster{
      TankDriveSubsystem tankDriveSubsystem;
      PneumaticsSubsystem pneumaticsSubsystem;
      IntakeSubsystem intakeSubsystem;
+    ElevatorSubsystem elevatorSubsystem;
 
     /**
      * Default Constructor
@@ -19,6 +21,7 @@ public class SubsystemMaster{
         tankDriveSubsystem = new TankDriveSubsystem();
         pneumaticsSubsystem = new PneumaticsSubsystem();
         intakeSubsystem = new IntakeSubsystem();
+        elevatorSubsystem = new ElevatorSubsystem();
     }
 
     /**
@@ -35,5 +38,9 @@ public class SubsystemMaster{
 
     public IntakeSubsystem getIntakeSubsystem(){
         return intakeSubsystem;
+    }
+
+    public ElevatorSubsystem getElevatorSubsystem(){
+        return elevatorSubsystem;
     }
 }
