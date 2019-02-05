@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 // import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.Elevator.ElevatorDoNothing;
@@ -21,7 +22,9 @@ public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  Encoder encoderDistance = new Encoder( 0, 1 , false , Encoder.EncodingType.k4X );
+  Encoder encoderHeight = new Encoder(0, 1, false, EncodingType.k4X);
+  
+  // encoderHeight.setDistancePerPulse(5);
   
   
 

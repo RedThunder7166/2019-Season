@@ -1,62 +1,62 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
+// /*----------------------------------------------------------------------------*/
+// /* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+// /* Open Source Software - may be modified and shared by FRC teams. The code   */
+// /* must be accompanied by the FIRST BSD license file in the root directory of */
+// /* the project.                                                               */
+// /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.Pneumatics;
+// package frc.robot.commands.Pneumatics;
 
-// import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
-import frc.robot.subsystems.PneumaticsSubsystem;
+// // import edu.wpi.first.wpilibj.Joystick;
+// import edu.wpi.first.wpilibj.command.Command;
+// import frc.robot.Robot;
+// import frc.robot.subsystems.PneumaticsSubsystem;
 
-public class PneumaticsArmOpen extends Command{
-
-
-  PneumaticsSubsystem pneumaticsSubsystem;
+// public class PneumaticsArmOpen extends Command{
 
 
-  public PneumaticsArmOpen(){
-    pneumaticsSubsystem = Robot.subsystemMaster.getPneumaticsSubsystem();
-    // Use requires() here to declare subsystem dependencies
-    requires(pneumaticsSubsystem);
-  }
+//   PneumaticsSubsystem pneumaticsSubsystem;
 
-  // Called just before this Command runs the first time
-  @Override
-  protected void initialize(){
 
-  }
+//   public PneumaticsArmOpen(){
+//     pneumaticsSubsystem = Robot.subsystemMaster.getPneumaticsSubsystem();
+//     // Use requires() here to declare subsystem dependencies
+//     requires(pneumaticsSubsystem);
+//   }
 
-  // Called repeatedly when this Command is scheduled to run
-  @Override
-  protected void execute(){
+//   // Called just before this Command runs the first time
+//   @Override
+//   protected void initialize(){
 
-    pneumaticsSubsystem.ArmExtended();
-    System.out.println("T-GAY");
+//   }
 
-  }
+//   // Called repeatedly when this Command is scheduled to run
+//   @Override
+//   protected void execute(){
 
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished(){
-    return false;
-  }
+//     pneumaticsSubsystem.ArmExtended();
+//     System.out.println("T-GAY");
 
-  // Called once after isFinished returns true
-  @Override
-  protected void end(){
+//   }
 
-    pneumaticsSubsystem.ArmDoNothing();
+//   // Make this return true when this Command no longer needs to run execute()
+//   @Override
+//   protected boolean isFinished(){
+//     return false;
+//   }
 
-  }
+//   // Called once after isFinished returns true
+//   @Override
+//   protected void end(){
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted(){
-    end();
-  }
-}
+//     pneumaticsSubsystem.ArmDoNothing();
+
+//   }
+
+//   // Called when another command which requires one or more of the same
+//   // subsystems is scheduled to run
+//   @Override
+//   protected void interrupted(){
+//     end();
+//   }
+// }

@@ -11,7 +11,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import frc.robot.RobotMap;
 import frc.robot.commands.Pneumatics.*;
 
 
@@ -26,15 +26,15 @@ public class PneumaticsSubsystem extends Subsystem{
 
   
   Compressor compressor;
-  Solenoid Sol1 = new Solenoid(0,0);
-  Solenoid Sol2 = new Solenoid(0,1);
-  Solenoid Sol3 = new Solenoid(0,2);
-  Solenoid Sol4 = new Solenoid(0,3);
+  Solenoid Sol1 = new Solenoid(0,RobotMap.SOL1_VALUE);
+  Solenoid Sol2 = new Solenoid(0,RobotMap.SOL2_VALUE);
+  Solenoid Sol3 = new Solenoid(0,RobotMap.SOL3_VALUE);
+  Solenoid Sol4 = new Solenoid(0,RobotMap.SOL4_VALUE);
 
 
   public void initDefaultCommand(){
       // Set the default command for a subsystem here.
-      setDefaultCommand(new PneumaticsArmDoNothing());
+      setDefaultCommand(new PneumaticsHatchDoNothing());
     }
     
   public void HatchDoNothing(){
@@ -51,19 +51,19 @@ public class PneumaticsSubsystem extends Subsystem{
     System.out.println("Sub to PewDiePie");
   }
 
-  public void ArmDoNothing(){
+  // public void ArmDoNothing(){
 
-    Sol1.set(true);
-    Sol2.set(false);
+  //   Sol1.set(true);
+  //   Sol2.set(false);
 
-  }
+  // }
 
-  public void ArmExtended(){
+  // public void ArmExtended(){
 
-    Sol1.set(false);
-    Sol2.set(true);
-    System.out.println("Sub to PewDiePie");
-  }
+  //   Sol1.set(false);
+  //   Sol2.set(true);
+  //   System.out.println("Sub to PewDiePie");
+  // }
 
   protected void init(){
 
