@@ -86,7 +86,6 @@ public class OI {
 
     }
 
-
     /**
      * Used to get a reference on the joystick
      * @return

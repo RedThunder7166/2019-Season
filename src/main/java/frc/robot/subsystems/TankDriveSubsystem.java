@@ -28,7 +28,6 @@ public class TankDriveSubsystem extends Subsystem{
 
     public TankDriveSubsystem(){
         init();
-
     }
     //once we are in our init method we are going to set the VictorSPs up
 
@@ -62,14 +61,14 @@ public class TankDriveSubsystem extends Subsystem{
 
         if(rightTrigger != 0){
             speed = .85*rightTrigger;
-            System.out.println(.55*rightTrigger);
+            System.out.println(.85*rightTrigger);
             if(Math.abs(rotation) > .15) {
                 turn = rotation;
             }
         
         }else if(leftTrigger != 0){
             speed = -.85*leftTrigger;
-            System.out.println(.55*leftTrigger);
+            System.out.println(.85*leftTrigger);
             if(Math.abs(rotation) > .15) {
                 turn = rotation;
             }
@@ -79,7 +78,7 @@ public class TankDriveSubsystem extends Subsystem{
             //do nothing
         }
             System.out.println("sPeEd:" + speed);
-            System.out.println("tUrN: " + turn);
+            System.out.println("TuRn: " + turn);
 
         differentialvideogameDrive.arcadeDrive(speed, turn);
         }

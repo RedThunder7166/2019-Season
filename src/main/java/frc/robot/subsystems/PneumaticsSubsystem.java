@@ -36,6 +36,13 @@ public class PneumaticsSubsystem extends Subsystem{
       // Set the default command for a subsystem here.
       setDefaultCommand(new PneumaticsArmDoNothing());
     }
+    
+  public void HatchDoNothing(){
+
+    Sol3.set(true);
+    Sol4.set(false);
+
+  }
 
   public void HatchExtended(){
 
@@ -44,12 +51,10 @@ public class PneumaticsSubsystem extends Subsystem{
     System.out.println("Sub to PewDiePie");
   }
 
+  public void ArmDoNothing(){
 
-
-  public void HatchDoNothing(){
-
-    Sol3.set(true);
-    Sol4.set(false);
+    Sol1.set(true);
+    Sol2.set(false);
 
   }
 
@@ -58,15 +63,6 @@ public class PneumaticsSubsystem extends Subsystem{
     Sol1.set(false);
     Sol2.set(true);
     System.out.println("Sub to PewDiePie");
-  }
-
-
-
-  public void ArmDoNothing(){
-
-    Sol1.set(true);
-    Sol2.set(false);
-
   }
 
   protected void init(){

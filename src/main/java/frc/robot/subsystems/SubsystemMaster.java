@@ -11,7 +11,7 @@ public class SubsystemMaster{
      TankDriveSubsystem tankDriveSubsystem;
      PneumaticsSubsystem pneumaticsSubsystem;
      IntakeSubsystem intakeSubsystem;
-    ElevatorSubsystem elevatorSubsystem;
+     ElevatorSubsystem elevatorSubsystem;
 
     /**
      * Default Constructor
