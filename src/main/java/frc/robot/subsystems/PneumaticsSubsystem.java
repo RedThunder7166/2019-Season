@@ -31,7 +31,6 @@ public class PneumaticsSubsystem extends Subsystem{
   Solenoid Sol3 = new Solenoid(0,RobotMap.SOL3_VALUE);
   Solenoid Sol4 = new Solenoid(0,RobotMap.SOL4_VALUE);
 
-
   public void initDefaultCommand(){
       // Set the default command for a subsystem here.
       setDefaultCommand(new PneumaticsHatchDoNothing());
@@ -39,15 +38,15 @@ public class PneumaticsSubsystem extends Subsystem{
     
   public void HatchDoNothing(){
 
-    Sol3.set(true);
-    Sol4.set(false);
+    Sol1.set(true);
+    Sol2.set(false);
 
   }
 
   public void HatchExtended(){
 
-    Sol3.set(false);
-    Sol4.set(true);
+    Sol1.set(false);
+    Sol2.set(true);
     System.out.println("Sub to PewDiePie");
   }
 

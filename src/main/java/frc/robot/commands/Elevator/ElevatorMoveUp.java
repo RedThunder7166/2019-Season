@@ -7,20 +7,16 @@
 
 package frc.robot.commands.Elevator;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.ElevatorSubsystem;
 
-public class ElevatorDoNothing extends Command {
+public class ElevatorMoveUp extends Command {
 
   ElevatorSubsystem elevatorSubsystem;
-  GenericHID opjoystick;
 
-
-  public ElevatorDoNothing() {
+  public ElevatorMoveUp() {
     elevatorSubsystem = Robot.subsystemMaster.getElevatorSubsystem();    // Use requires() here to declare subsystem dependencies
-
     // eg. requires(chassis);
     requires(elevatorSubsystem);
   }
@@ -28,13 +24,13 @@ public class ElevatorDoNothing extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    opjoystick = Robot.oi.getopjoystick();
+    elevatorSubsystem.ElevatorUpSpeed();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    elevatorSubsystem.ElevatorDoNothing();
+  elevatorSubsystem.ElevatorUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -46,11 +42,13 @@ public class ElevatorDoNothing extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    elevatorSubsystem.ElevatorDoNothing();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

@@ -10,6 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.Elevator.ElevatorMoveDown;
+import frc.robot.commands.Elevator.ElevatorMoveUp;
 // import frc.robot.commands.Pneumatics.PneumaticsArmOpen;
 import frc.robot.commands.Pneumatics.PneumaticsHatchOpen;
 
@@ -56,7 +58,8 @@ public class OI {
 
     // protected JoystickButton IntakeButton;
     protected JoystickButton HatchButton;
-
+    protected JoystickButton ElevatorUpButton;
+    protected JoystickButton ElevatorDownButton;
     //hello
 
     /**
@@ -75,14 +78,20 @@ public class OI {
         System.out.println("Made it this far");
         // PneumaticsArmOpen pneumaticsArmOpen = new PneumaticsArmOpen();
         PneumaticsHatchOpen pneumaticsHatchOpen = new PneumaticsHatchOpen();
+        ElevatorMoveUp elevatorMoveUp = new ElevatorMoveUp();
+        ElevatorMoveDown elevatorMoveDown = new ElevatorMoveDown();
 
 
 
         // IntakeButton = new JoystickButton(opjoystick, 2);
         HatchButton = new JoystickButton(opjoystick, 1);
+        ElevatorUpButton = new JoystickButton(opjoystick, 5);
+        ElevatorDownButton = new JoystickButton(opjoystick, 6);
 
         // IntakeButton.toggleWhenActive(pneumaticsArmOpen);
         HatchButton.whileHeld(pneumaticsHatchOpen);
+        ElevatorUpButton.whileHeld(elevatorMoveUp);
+        ElevatorDownButton.whileHeld(elevatorMoveDown);
 
     }
 

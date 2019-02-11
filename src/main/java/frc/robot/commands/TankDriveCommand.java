@@ -40,18 +40,19 @@ public class TankDriveCommand extends Command{
      */
     @Override
     protected void execute(){
+        tankDriveSubsystem.videogamedrive();
         //You might do something like this to debug the joystick input
        System.out.println("Left: " + joystick.getRawAxis(RobotMap.DRIVE_LEFT_TRIGGER));
        System.out.println("Right: " + joystick.getRawAxis(RobotMap.DRIVE_RIGHT_TRIGGER));
 
         //A custom video game drive to mimic a different type of input
-       double rotation = joystick.getRawAxis(RobotMap.DRIVE_STICK);
+    //    double rotation = joystick.getRawAxis(RobotMap.DRIVE_STICK);
 
         //If you want to alter the input before passing it to the controller, you can do that here.
        //rotation = Math.pow(RobotMap.DRIVE_STICK, 3);
 
         //The call to our subsystem with the altered rotation value from above
-       tankDriveSubsystem.videogamedrive(joystick.getRawAxis(RobotMap.DRIVE_LEFT_TRIGGER), joystick.getRawAxis(RobotMap.DRIVE_RIGHT_TRIGGER), Math.pow(rotation, 3));
+    //    tankDriveSubsystem.videogamedrive(joystick.getRawAxis(RobotMap.DRIVE_LEFT_TRIGGER), joystick.getRawAxis(RobotMap.DRIVE_RIGHT_TRIGGER), Math.pow(rotation, 3));
     }
 
     /**
