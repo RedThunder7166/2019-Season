@@ -27,7 +27,9 @@ public class RobotMap {
   public static final int LEFT_INTAKE_PORT = 4;
   public static final int MIDDLE_INTAKE_PORT = 5;
   public static final int RIGHT_INTAKE_PORT = 6;
+  public static final int ELEVATOR_PORT_CAN = 1;
   public static final int ELEVATOR_PORT = 7;
+  public static final int LIGHT_PORT = 9;
 
 
   public static final int OP_STICK_PORT = 1;
@@ -54,4 +56,10 @@ public class RobotMap {
   public static final int DRIVE_STICK = 0;
   //Final tells me it cannot change in the code
   //Static means it can only exist once in memory
+
+  public static final double wheelDiameter = 1.5;
+  public static final double countsPerRevolution = 1024;
+  public static final double gearRatio = 63.0/1;
+  
+
 }

@@ -7,13 +7,18 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlFrame;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
+
+import edu.wpi.first.wpilibj.AnalogInput;
 // import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
-// import edu.wpi.first.wpilibj.Encoder;
-// import edu.wpi.first.wpilibj.Timer;
-// import edu.wpi.first.wpilibj.CounterBase;
+// import edu.wpi.first.wpilibj.PWMTalonSRX;
 import edu.wpi.first.wpilibj.VictorSP;
-// import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+// import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.Elevator.ElevatorDoNothing;
@@ -26,56 +31,135 @@ public class ElevatorSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   // Encoder encoderHeight = new Encoder(0, 1, false, EncodingType.k4X);
-  
+
   // encoderHeight.setDistancePerPulse(5);
 
   DigitalInput elevatorSwitchBottom = new DigitalInput(0);
   DigitalInput elevatorSwitchTop = new DigitalInput(1);
-  VictorSP elevator = new VictorSP(RobotMap.ELEVATOR_PORT);
+  TalonSRX elevator = new TalonSRX(RobotMap.ELEVATOR_PORT_CAN);
+  // VictorSP elevator2 = new VictorSP(RobotMap.ELEVATOR_PORT);
+  AnalogInput potentiometer = new AnalogInput(3);
+  
+
+  
   // Counter bottomCounter = new Counter(elevatorSwitch);
 
+  public void ElevatorUp(){
+      // if(elevatorSwitchTop.get() == true){
+      //   elevator.set(ControlMode.PercentOutput, 0.08);
+      // }else{
+        elevator.set(ControlMode.PercentOutput, 0.75);
+      }
+    // }
 
+  public void ElevatorDown(){
+      if(elevatorSwitchBottom.get() == false){
+        // Do Nothing
+      }else{ elevator.set(ControlMode.PercentOutput, -0.60);
+    }
+  }
+
+  public void ElevatorDoNothing(){
+    // elevator.setNeutralMode(NeutralMode.Brake);
+  }
+
+  public void ElevatorUpSpeed(){
+    elevator.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void ElevatorDownSpeed(){
+    elevator.set(ControlMode.PercentOutput, -1);
+  }
 
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new ElevatorDoNothing());
   }
+//If you want to drive an use the elevator take everything below this and comment it out
 
-  public void ElevatorDown(){
-    if(elevator.get() < 0){
-      elevator.set(-.75);
-      if(elevatorSwitchBottom.get() == false){
-        elevator.set(0);
-      }
-    }
-  }
 
-  public void ElevatorUp(){
-    if(elevator.get() > 0){
-      elevator.set(0.75);
-      if(elevatorSwitchTop.get() == false){
-        elevator.set(0.05);
-      }
-    }
-  }
 
-  // public Boolean isSwitchSet(){
-  //   return bottomCounter.get() > 0 && elevatorSwitch.get() == false;
+
+
+
+
+
+  // public void ElevatorGround(){
+  //   //if you push A, set motor at 100%
+  //   if(elevator.getActiveTrajectoryPosition() >= 0){
+  //     elevator.setSelectedSensorPosition(0);
+  //   }
+  //   if(elevatorSwitchBottom.get() == false){
+  //     elevator.set(0.05);
+  //   }
   // }
 
-  // public void initializeCounter(){
-  //   bottomCounter.reset();
+  // //suicide
+
+  // public void ElevatorHatch1(){
+  //   if(elevator.getActiveTrajectoryPosition() >= 0){
+  //     elevator.setSelectedSensorPosition(0);
+  //   }
+  //   if(elevatorSwitchTop.get() == false){
+  //     elevator.set(0.05);
+  //   }
+  // }
+  
+  // public void ElevatorHatch2(){
+  //   if(elevator.getActiveTrajectoryPosition() >= 0){
+  //     elevator.setSelectedSensorPosition(0);
+  //     }
+  //   if(elevatorSwitchTop.get() == false){
+  //     elevator.set(0.05);
+  //     }
   // }
 
-  public void ElevatorDoNothing(){
-    elevator.set(0.1);
-  }
+  // public void ElevatorHatch3(){
+  //   if(elevator.getActiveTrajectoryPosition() >= 0){
+  //     elevator.setSelectedSensorPosition(0);
+  //     }
+  //   if(elevatorSwitchTop.get() == false){
+  //     elevator.set(0.05);
+  //    }
+  // }
 
-  public void ElevatorUpSpeed(){
-    elevator.set(1);
-  }
+  // //suicide again
 
-  public void ElevatorDownSpeed(){
-    elevator.set(-1);
-  }
+  // public void ElevatorCargo1(){
+  //   if(elevator.getActiveTrajectoryPosition() >= 0){
+  //     elevator.setSelectedSensorPosition(0);
+  //     }
+  //   if(elevatorSwitchTop.get() == false){
+  //     elevator.set(0.05);
+  //    }
+  // }
+
+  // public void ElevatorCargo2(){
+  //   if(elevator.getActiveTrajectoryPosition() >= 0){
+  //     elevator.setSelectedSensorPosition(0);
+  //     }
+  //   if(elevatorSwitchTop.get() == false){
+  //     elevator.set(0.05);
+  //    }
+  // }
+
+  // // public Boolean isSwitchSet(){
+  // //   return bottomCounter.get() > 0 && elevatorSwitch.get() == false;
+  // // }
+
+  // // public void initializeCounter(){
+  // //   bottomCounter.reset();
+  // // }
+
+  // public void ElevatorDoNothing(){
+  //   elevator.set(0.05);
+  // }
+
+  // public void ElevatorUpSpeed(){
+  //   elevator.set(1);
+  // }
+
+  // public void ElevatorDownSpeed(){
+  //   elevator.set(-1);
+  // }
 }

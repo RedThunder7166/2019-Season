@@ -12,6 +12,8 @@ public class SubsystemMaster{
      PneumaticsSubsystem pneumaticsSubsystem;
      IntakeSubsystem intakeSubsystem;
      ElevatorSubsystem elevatorSubsystem;
+     LightsSubsystem lightsSubsystem;
+    //  EncoderSubsystem encoderSubsystem;
 
     /**
      * Default Constructor
@@ -22,6 +24,8 @@ public class SubsystemMaster{
         pneumaticsSubsystem = new PneumaticsSubsystem();
         intakeSubsystem = new IntakeSubsystem();
         elevatorSubsystem = new ElevatorSubsystem();
+        lightsSubsystem = new LightsSubsystem();
+        // encoderSubsystem = new EncoderSubsystem();
     }
 
     /**
@@ -43,4 +47,12 @@ public class SubsystemMaster{
     public ElevatorSubsystem getElevatorSubsystem(){
         return elevatorSubsystem;
     }
+
+    public LightsSubsystem getLightsSubsystem(){
+        return lightsSubsystem;
+    }
+    
+    // public EncoderSubsystem getEncoderSubsystem(){
+    //     return encoderSubsystem;
+    // }
 }
