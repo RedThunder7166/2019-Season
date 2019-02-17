@@ -72,14 +72,14 @@ public class TankDriveSubsystem extends Subsystem{
         double rotation = joystick.getRawAxis(RobotMap.DRIVE_STICK);
 
             if(rightTrigger != 0){
-                speed = .65*rightTrigger;
-                System.out.println(.65*rightTrigger);
+                speed = .80*rightTrigger;
+                System.out.println(.80*rightTrigger);
                 if(Math.abs(rotation) > .10) {
                     turn = Math.pow(.80*rotation, 3);
                 }
             }else if(leftTrigger != 0){
-                speed = -.65*leftTrigger;
-                System.out.println(.65*leftTrigger);
+                speed = -.80*leftTrigger;
+                System.out.println(.80*leftTrigger);
                 if(Math.abs(rotation) > .10) {
                     turn = Math.pow(.80*rotation, 3);
                 }

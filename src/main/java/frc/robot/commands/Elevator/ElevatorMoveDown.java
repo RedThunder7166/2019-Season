@@ -27,7 +27,6 @@ public class ElevatorMoveDown extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    // elevatorSubsystem.initializeCounter();
     elevatorSubsystem.ElevatorDownSpeed();
   }
 

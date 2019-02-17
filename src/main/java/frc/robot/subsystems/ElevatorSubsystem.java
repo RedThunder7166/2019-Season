@@ -45,22 +45,30 @@ public class ElevatorSubsystem extends Subsystem {
   // Counter bottomCounter = new Counter(elevatorSwitch);
 
   public void ElevatorUp(){
-      // if(elevatorSwitchTop.get() == true){
-      //   elevator.set(ControlMode.PercentOutput, 0.08);
-      // }else{
-        elevator.set(ControlMode.PercentOutput, 0.75);
+    if(elevator.getMotorOutputPercent() > 0){
+      elevator.set(ControlMode.PercentOutput, .85);
+      if(elevatorSwitchTop.get() == false){
+        elevator.set(ControlMode.PercentOutput, 0.10);
+        // elevator.setNeutralMode(neutralMode.);
       }
-    // }
+    }
+  }
 
   public void ElevatorDown(){
+    if(elevator.getMotorOutputPercent() < 0){
+      elevator.set(ControlMode.PercentOutput, -0.65);
       if(elevatorSwitchBottom.get() == false){
-        // Do Nothing
-      }else{ elevator.set(ControlMode.PercentOutput, -0.60);
+        elevator.set(ControlMode.PercentOutput, 0.0);
+      }
     }
   }
 
   public void ElevatorDoNothing(){
-    // elevator.setNeutralMode(NeutralMode.Brake);
+    if(elevatorSwitchBottom.get() == false){
+    elevator.set(ControlMode.PercentOutput, 0.0);
+    } else if(elevatorSwitchBottom.get() == true){
+      elevator.set(ControlMode.PercentOutput, 0.10);
+    }
   }
 
   public void ElevatorUpSpeed(){
