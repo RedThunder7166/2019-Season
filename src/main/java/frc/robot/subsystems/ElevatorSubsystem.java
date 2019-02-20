@@ -7,18 +7,11 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlFrame;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
-
-import edu.wpi.first.wpilibj.AnalogInput;
-// import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
-// import edu.wpi.first.wpilibj.PWMTalonSRX;
-import edu.wpi.first.wpilibj.VictorSP;
-// import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.Elevator.ElevatorDoNothing;
@@ -34,50 +27,166 @@ public class ElevatorSubsystem extends Subsystem {
 
   // encoderHeight.setDistancePerPulse(5);
 
+  boolean isFinished = false;
+  boolean inErrorZone = false;
+  int count;
+
   DigitalInput elevatorSwitchBottom = new DigitalInput(0);
   DigitalInput elevatorSwitchTop = new DigitalInput(1);
   TalonSRX elevator = new TalonSRX(RobotMap.ELEVATOR_PORT_CAN);
-  // VictorSP elevator2 = new VictorSP(RobotMap.ELEVATOR_PORT);
-  AnalogInput potentiometer = new AnalogInput(3);
+  Spark elevatorLights = new Spark(RobotMap.ELEVATOR_LIGHTS_PORT);
   
+  // elevator.configSelectedFeedbackSensor(Feedback.)
 
-  
-  // Counter bottomCounter = new Counter(elevatorSwitch);
 
-  public void ElevatorUp(){
-    if(elevator.getMotorOutputPercent() > 0){
-      elevator.set(ControlMode.PercentOutput, .85);
-      if(elevatorSwitchTop.get() == false){
-        elevator.set(ControlMode.PercentOutput, 0.10);
-        // elevator.setNeutralMode(neutralMode.);
-      }
+
+
+  // Hatch Heights
+
+  public void ElevatorHatch1(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    elevator.config_kP(0, 10);
+    elevator.config_kI(0, 0.001);
+    elevator.config_kD(0, 18);
+    elevatorLights.set(0.01);
+
+    elevator.setSensorPhase(true);
+
+    elevator.set(ControlMode.Position , 4129);
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+
+    if(elevator.getSelectedSensorPosition() > 4000 && elevator.getSelectedSensorPosition() < 4200){
+      elevator.set(ControlMode.PercentOutput, 0.12);
     }
   }
 
-  public void ElevatorDown(){
-    if(elevator.getMotorOutputPercent() < 0){
-      elevator.set(ControlMode.PercentOutput, -0.65);
-      if(elevatorSwitchBottom.get() == false){
-        elevator.set(ControlMode.PercentOutput, 0.0);
-      }
+  public void ElevatorHatch2(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    elevator.config_kP(0, 10);
+    elevator.config_kI(0, 0.001);
+    elevator.config_kD(0, 18);
+    elevatorLights.set(0.01);
+
+
+    elevator.setSensorPhase(true);
+
+    elevator.set(ControlMode.Position , 17000);
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+
+    if(elevator.getSelectedSensorPosition() > 16900 && elevator.getSelectedSensorPosition() < 17100){
+      elevator.set(ControlMode.PercentOutput, 0.12);
     }
   }
+
+  public void ElevatorHatch3(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    elevator.config_kP(0, 10);
+    elevator.config_kI(0, 0.001);
+    elevator.config_kD(0, 18);
+    elevatorLights.set(0.01);
+
+
+    elevator.setSensorPhase(true);
+
+
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+    
+    if(elevatorSwitchTop.get() == true){
+      elevator.set(ControlMode.PercentOutput, 0.85);
+      // elevator.set(ControlMode.Position , 27500);
+
+      // if(elevator.getSelectedSensorPosition() > 27400 && elevator.getSelectedSensorPosition() < 27600){
+      // elevator.set(ControlMode.PercentOutput, 0.15);
+      // }
+    } else if(elevatorSwitchTop.get() == false){
+      elevator.set(ControlMode.PercentOutput, 0.15);
+      }
+  }
+
+  //Cargo Heights
+
+  public void ElevatorCargo1(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    elevator.config_kP(0, 10);
+    elevator.config_kI(0, 0.001);
+    elevator.config_kD(0, 18);
+    elevatorLights.set(0.21);
+
+    elevator.setSensorPhase(true);
+
+    elevator.set(ControlMode.Position , 10370);
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+    
+    if(elevator.getSelectedSensorPosition() > 10270 && elevator.getSelectedSensorPosition() < 10470){
+      elevator.set(ControlMode.PercentOutput, 0.15);
+    }
+  }
+
+  public void ElevatorCargo2(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    elevator.config_kP(0, 10);
+    elevator.config_kI(0, 0.001);
+    elevator.config_kD(0, 18);
+    elevatorLights.set(0.21);
+
+
+    elevator.setSensorPhase(true);
+
+    elevator.set(ControlMode.Position , 23303);
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+    
+    if(elevator.getSelectedSensorPosition() > 23203 && elevator.getSelectedSensorPosition() < 23403){
+      elevator.set(ControlMode.PercentOutput, 0.15);
+    }
+  }
+
+  // Ground Height
+
+  public void ElevatorGround(){
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    elevator.config_kP(0, 10);
+    elevator.config_kI(0, 0.001);
+    elevator.config_kD(0, 18);
+    elevatorLights.set(-0.31);
+
+    elevator.setSensorPhase(true);
+
+    if(elevatorSwitchBottom.get() == true) {
+      elevator.set(ControlMode.PercentOutput , -0.45);
+    } else if(elevatorSwitchBottom.get() == false){
+      elevator.set(ControlMode.PercentOutput, 0.0);
+      elevator.setSelectedSensorPosition(0);
+    }
+  }
+
+
+
+  
+  // The Default Method That Takes Place When There Is No Elevator Input
 
   public void ElevatorDoNothing(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
     if(elevatorSwitchBottom.get() == false){
     elevator.set(ControlMode.PercentOutput, 0.0);
+    elevator.setSelectedSensorPosition(0);
     } else if(elevatorSwitchBottom.get() == true){
+      elevator.set(ControlMode.PercentOutput, 0.15);
+    }
+  }
+
+  public void ElevatorUp(){
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    System.out.println("Encoder Value: " + elevator.getSelectedSensorPosition());
+    elevator.set(ControlMode.PercentOutput, 0.65);
+    if(elevatorSwitchTop.get() == false){
       elevator.set(ControlMode.PercentOutput, 0.10);
     }
   }
 
-  public void ElevatorUpSpeed(){
-    elevator.set(ControlMode.PercentOutput, 1);
-  }
-
-  public void ElevatorDownSpeed(){
-    elevator.set(ControlMode.PercentOutput, -1);
-  }
+  // public void ElevatorDownSpeed(){
+  //   elevator.set(ControlMode.PercentOutput, -1);
+  // }
 
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

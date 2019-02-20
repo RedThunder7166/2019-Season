@@ -3,7 +3,6 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 import frc.robot.subsystems.TankDriveSubsystem;
 
 /**
@@ -42,8 +41,8 @@ public class TankDriveCommand extends Command{
     protected void execute(){
         tankDriveSubsystem.videogamedrive();
         //You might do something like this to debug the joystick input
-       System.out.println("Left: " + joystick.getRawAxis(RobotMap.DRIVE_LEFT_TRIGGER));
-       System.out.println("Right: " + joystick.getRawAxis(RobotMap.DRIVE_RIGHT_TRIGGER));
+    //    System.out.println("Left: " + joystick.getRawAxis(RobotMap.DRIVE_LEFT_TRIGGER));
+    //    System.out.println("Right: " + joystick.getRawAxis(RobotMap.DRIVE_RIGHT_TRIGGER));
 
         //A custom video game drive to mimic a different type of input
     //    double rotation = joystick.getRawAxis(RobotMap.DRIVE_STICK);

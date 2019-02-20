@@ -27,8 +27,9 @@
 
 
     
-//     elevatorDistance.setDistancePerPulse((Math.PI * 1.5) / 1024 / 63);
+//     elevatorDistance.setDistancePerPulse((Math.PI * 1.5) / 1024);
 //     // this value is 0.0000730467 it is really small. in / pulse
+//                      0.004602 not really  small
 //   }
 
 //   @Override

@@ -10,10 +10,13 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Lights;
-import frc.robot.commands.Elevator.ElevatorHeight0;
-import frc.robot.commands.Elevator.ElevatorMoveDown;
-import frc.robot.commands.Elevator.ElevatorMoveUp;
+import frc.robot.commands.Elevator.ElevatorCargo1Command;
+import frc.robot.commands.Elevator.ElevatorCargo2Command;
+import frc.robot.commands.Elevator.ElevatorGroundCommand;
+import frc.robot.commands.Elevator.ElevatorHatch1Command;
+import frc.robot.commands.Elevator.ElevatorHatch2Command;
+import frc.robot.commands.Elevator.ElevatorHatch3Command;
+import frc.robot.commands.Elevator.ElevatorUpCommand;
 // import frc.robot.commands.Pneumatics.PneumaticsArmOpen;
 import frc.robot.commands.Pneumatics.PneumaticsHatchOpen;
 
@@ -60,9 +63,17 @@ public class OI {
 
     // protected JoystickButton IntakeButton;
     protected JoystickButton HatchButton;
-    protected JoystickButton ElevatorUpButton;
-    protected JoystickButton ElevatorDownButton;
-    protected JoystickButton LightTest;
+    protected JoystickButton ArmButton;
+    protected JoystickButton elevatorGroundButton;
+    protected JoystickButton elevatorAbutton;
+    protected JoystickButton elevatorXbutton;
+    protected JoystickButton elevatorYbutton;
+    protected JoystickButton elevatorLB;
+    protected JoystickButton elevatorRB;
+    protected JoystickButton elevatorBackbutton;
+
+
+
     //hello
 
     /**
@@ -80,24 +91,50 @@ public class OI {
 
         System.out.println("Made it this far");
         // PneumaticsArmOpen pneumaticsArmOpen = new PneumaticsArmOpen();
-        Lights lights = new Lights();
         PneumaticsHatchOpen pneumaticsHatchOpen = new PneumaticsHatchOpen();
-        ElevatorMoveUp elevatorMoveUp = new ElevatorMoveUp();
-        ElevatorMoveDown elevatorMoveDown = new ElevatorMoveDown();
+        ElevatorGroundCommand elevatorGroundCommand = new ElevatorGroundCommand();
+        ElevatorHatch1Command elevatorHatch1Command = new ElevatorHatch1Command();
+        ElevatorHatch2Command elevatorHatch2Command = new ElevatorHatch2Command();
+        ElevatorHatch3Command elevatorHatch3Command = new ElevatorHatch3Command();
+        ElevatorCargo1Command elevatorCargo1Command = new ElevatorCargo1Command();
+        ElevatorCargo2Command elevatorCargo2Command = new ElevatorCargo2Command();
+        ElevatorUpCommand elevatorUpCommand = new ElevatorUpCommand();
+
+
+
 
 
 
         // IntakeButton = new JoystickButton(opjoystick, 2);
-        LightTest = new JoystickButton(opjoystick, 2);
-        HatchButton = new JoystickButton(opjoystick, 1);
-        ElevatorUpButton = new JoystickButton(opjoystick, 5);
-        ElevatorDownButton = new JoystickButton(opjoystick, 6);
+        HatchButton = new JoystickButton(opjoystick, 8);
+        ArmButton = new JoystickButton(opjoystick, 9);
+        elevatorGroundButton = new JoystickButton(opjoystick, 2);
+        elevatorAbutton = new JoystickButton(opjoystick, 1);
+        elevatorXbutton = new JoystickButton(opjoystick, 3);
+        elevatorYbutton = new JoystickButton(opjoystick, 4);
+        elevatorLB = new JoystickButton(opjoystick, 5);
+        elevatorRB = new JoystickButton(opjoystick, 6);
+        elevatorBackbutton = new JoystickButton(opjoystick, 7);
+
 
         // IntakeButton.toggleWhenActive(pneumaticsArmOpen);
-        LightTest.toggleWhenActive(lights);
         HatchButton.whileHeld(pneumaticsHatchOpen);
-        ElevatorUpButton.whileHeld(elevatorMoveUp);
-        ElevatorDownButton.whileHeld(elevatorMoveDown);
+
+        elevatorBackbutton.whileHeld(elevatorUpCommand);
+        elevatorGroundButton.toggleWhenPressed(elevatorGroundCommand);
+        elevatorAbutton.toggleWhenActive(elevatorHatch1Command);
+        elevatorXbutton.toggleWhenActive(elevatorHatch2Command);
+        elevatorYbutton.toggleWhenActive(elevatorHatch3Command);
+        elevatorLB.toggleWhenActive(elevatorCargo1Command);
+        elevatorLB.toggleWhenActive(elevatorCargo2Command);
+
+        // elevatorGroundButton.toggleWhenActive(elevatorGroundCommand);
+        
+        // if(opjoystick.getRawAxis(2) == 0 & opjoystick.getRawButton(1) == true){
+        //     elevatorAbutton.toggleWhenActive(elevatorHatch1Command);
+        // }else if(opjoystick.getRawAxis(2) >= .25 & opjoystick.getRawButton(1) == true){
+        //     elevatorAbutton.toggleWhenActive(elevatorCargo1Command);
+        // }
 
     }
 

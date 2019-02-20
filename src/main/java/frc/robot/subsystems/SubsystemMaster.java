@@ -10,6 +10,7 @@ public class SubsystemMaster{
     // Our reference to the tank drive subsystem
      TankDriveSubsystem tankDriveSubsystem;
      PneumaticsSubsystem pneumaticsSubsystem;
+    //  PneumaticsArmSubsystem pneumaticsArmSubsystem;
      IntakeSubsystem intakeSubsystem;
      ElevatorSubsystem elevatorSubsystem;
      LightsSubsystem lightsSubsystem;
@@ -22,6 +23,7 @@ public class SubsystemMaster{
     public SubsystemMaster(){
         tankDriveSubsystem = new TankDriveSubsystem();
         pneumaticsSubsystem = new PneumaticsSubsystem();
+        // pneumaticsArmSubsystem = new PneumaticsArmSubsystem();
         intakeSubsystem = new IntakeSubsystem();
         elevatorSubsystem = new ElevatorSubsystem();
         lightsSubsystem = new LightsSubsystem();
@@ -39,6 +41,10 @@ public class SubsystemMaster{
     public PneumaticsSubsystem getPneumaticsSubsystem(){
         return pneumaticsSubsystem;
     }
+
+    // public PneumaticsArmSubsystem getPneumaticsArmSubsystem(){
+    //     return pneumaticsArmSubsystem;
+    // }
 
     public IntakeSubsystem getIntakeSubsystem(){
         return intakeSubsystem;

@@ -10,18 +10,18 @@
 // // import edu.wpi.first.wpilibj.Joystick;
 // import edu.wpi.first.wpilibj.command.Command;
 // import frc.robot.Robot;
-// import frc.robot.subsystems.PneumaticsSubsystem;
+// import frc.robot.subsystems.PneumaticsArmSubsystem;
 
 // public class PneumaticsArmOpen extends Command{
 
 
-//   PneumaticsSubsystem pneumaticsSubsystem;
+//   PneumaticsArmSubsystem pneumaticsArmSubsystem;
 
 
 //   public PneumaticsArmOpen(){
-//     pneumaticsSubsystem = Robot.subsystemMaster.getPneumaticsSubsystem();
+//     pneumaticsArmSubsystem = Robot.subsystemMaster.getPneumaticsArmSubsystem();
 //     // Use requires() here to declare subsystem dependencies
-//     requires(pneumaticsSubsystem);
+//     requires(pneumaticsArmSubsystem);
 //   }
 
 //   // Called just before this Command runs the first time
@@ -34,8 +34,7 @@
 //   @Override
 //   protected void execute(){
 
-//     pneumaticsSubsystem.ArmExtended();
-//     System.out.println("T-GAY");
+//     pneumaticsArmSubsystem.ArmExtended();
 
 //   }
 
@@ -49,7 +48,7 @@
 //   @Override
 //   protected void end(){
 
-//     pneumaticsSubsystem.ArmDoNothing();
+//     pneumaticsArmSubsystem.ArmDoNothing();
 
 //   }
 

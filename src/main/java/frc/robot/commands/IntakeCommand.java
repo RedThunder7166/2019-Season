@@ -40,7 +40,7 @@ public class IntakeCommand extends Command {
     @Override
     protected void execute() {
         //You might do something like this to debug the joystick input
-       System.out.println("SpEeD: " + opjoystick.getRawAxis(RobotMap.OP_LEFT_STICK));
+    //    System.out.println("SpEeD: " + opjoystick.getRawAxis(RobotMap.OP_LEFT_STICK));
 
         //A custom video game drive to mimic a different type of input
 

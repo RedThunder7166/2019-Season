@@ -10,18 +10,18 @@
 // // import edu.wpi.first.wpilibj.Joystick;
 // import edu.wpi.first.wpilibj.command.Command;
 // import frc.robot.Robot;
-// import frc.robot.subsystems.PneumaticsSubsystem;
+// import frc.robot.subsystems.PneumaticsArmSubsystem;
 
 // public class PneumaticsArmDoNothing extends Command{
 
 
-//   PneumaticsSubsystem pneumaticsSubsystem;
+//   PneumaticsArmSubsystem pneumaticsArmSubsystem;
 
 
 //   public PneumaticsArmDoNothing(){
 //     // Use requires() here to declare subsystem dependencies
-//     pneumaticsSubsystem = Robot.subsystemMaster.getPneumaticsSubsystem();
-//     requires(pneumaticsSubsystem);
+//     pneumaticsArmSubsystem = Robot.subsystemMaster.getPneumaticsArmSubsystem();
+//     requires(pneumaticsArmSubsystem);
    
 //   }
 
@@ -37,7 +37,7 @@
 //   @Override
 //   protected void execute(){
 
-//     pneumaticsSubsystem.ArmDoNothing();
+//     pneumaticsArmSubsystem.ArmDoNothing();
 
 //   }
 

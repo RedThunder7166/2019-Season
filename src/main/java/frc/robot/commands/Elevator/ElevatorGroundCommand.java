@@ -12,12 +12,12 @@ import frc.robot.Robot;
 import frc.robot.subsystems.ElevatorSubsystem;
 // import frc.robot.subsystems.EncoderSubsystem;
 
-public class ElevatorHeight0 extends Command {
+public class ElevatorGroundCommand extends Command {
 
-    // EncoderSubsystem encoderSubsystem;
-    ElevatorSubsystem elevatorSubsystem;
+  // EncoderSubsystem encoderSubsystem;
+  ElevatorSubsystem elevatorSubsystem;
 
-  public ElevatorHeight0() {
+  public ElevatorGroundCommand() {
     // encoderSubsystem = Robot.subsystemMaster.getEncoderSubsystem();
     elevatorSubsystem = Robot.subsystemMaster.getElevatorSubsystem();
     // requires(encoderSubsystem);
@@ -33,7 +33,9 @@ public class ElevatorHeight0 extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //   encoderSubsystem.UpTest();
+    elevatorSubsystem.ElevatorGround();
+
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

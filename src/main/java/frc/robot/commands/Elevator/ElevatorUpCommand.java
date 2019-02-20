@@ -11,12 +11,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.ElevatorSubsystem;
 
-public class ElevatorMoveUp extends Command {
+public class ElevatorUpCommand extends Command {
+
 
   ElevatorSubsystem elevatorSubsystem;
 
-  public ElevatorMoveUp() {
-    elevatorSubsystem = Robot.subsystemMaster.getElevatorSubsystem();    // Use requires() here to declare subsystem dependencies
+  public ElevatorUpCommand() {
+    elevatorSubsystem = Robot.subsystemMaster.getElevatorSubsystem();
+    // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(elevatorSubsystem);
   }
@@ -24,14 +26,12 @@ public class ElevatorMoveUp extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    elevatorSubsystem.ElevatorUpSpeed();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  elevatorSubsystem.ElevatorUp();
-  System.out.println("Should be Moving");
+    elevatorSubsystem.ElevatorUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()

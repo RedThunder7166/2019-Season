@@ -38,8 +38,8 @@ public class RobotMap {
   public static final int OP_RIGHT_STICK = 5;
   
 
-  public static final int FRONT_LEFT_MOTOR = 2;
-  public static final int FRONT_RIGHT_MOTOR = 3;
+  public static final int   ELEVATOR_LIGHTS_PORT = 2;
+  // public static final int FRONT_RIGHT_MOTOR = 3;
   public static final int BACK_LEFT_MOTOR = 0;
   public static final int BACK_RIGHT_MOTOR = 1;
 

@@ -7,18 +7,15 @@
 
 package frc.robot.commands.Elevator;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-// import frc.robot.RobotMap;
 import frc.robot.subsystems.ElevatorSubsystem;
 
-public class ElevatorMoveDown extends Command {
+public class ElevatorHatch3Command extends Command {
 
   ElevatorSubsystem elevatorSubsystem;
-  GenericHID opjoystick;
 
-  public ElevatorMoveDown() {
+  public ElevatorHatch3Command() {
     elevatorSubsystem = Robot.subsystemMaster.getElevatorSubsystem();    // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(elevatorSubsystem);
@@ -27,20 +24,19 @@ public class ElevatorMoveDown extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    elevatorSubsystem.ElevatorDownSpeed();
+    // elevatorSubsystem.ElevatorUpSpeed();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  elevatorSubsystem.ElevatorDown();
+  elevatorSubsystem.ElevatorHatch3();
+  // System.out.println("Should be Moving");
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-      // System.out.println(elevatorSubsystem.isSwitchSet());
-    // return elevatorSubsystem.isSwitchSet();
     return false;
   }
 
@@ -56,4 +52,4 @@ public class ElevatorMoveDown extends Command {
   protected void interrupted() {
     end();
   }
-} 
+}
